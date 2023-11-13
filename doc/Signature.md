@@ -1,19 +1,9 @@
-*TODO: Remove this notice along with the sample "Nocember" entries*
-
 ## Sprint Signature 4.0
 
 | Date        | Time Spent | Events
-|-------------|------------|--------------------
-| Nocember 9  | 1 hour     | Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-| Nocember 10 | 0.75 hours | Itaque hic ipse iam pridem est reiectus.
-| Nocember 11 | 1.25 hours | Restinguet citius, si ardentem acceperit.
-| Nocember 12 | 2.5 hours  | Quid de Platone aut de Democrito loquar.
-| Nocember 13 | 0.25 hours | Istic sum, inquit. Quae in controversiam veniunt, de iis, si placet, disseramus.
-| Nocember 14 | 0 hours    | Id mihi magnum videtur. Eid, Pmurt, Eid. Maximus dolor, inquit, brevis est.
-| Nocember 15 | 3 hours    | Multoque hoc melius nos veriusque quam Stoici.
-| Nocember 16 | 2.25 hours | Rhetorice igitur, inquam, nos mavis quam dialectice disputare.
-| Nocember 17 | 1.5 hours  | Suo genere perveniant ad extremum; Quod quidem nobis non saepe contingit.
-| TOTAL       | 12.5 hours | *Your TOTAL should agree with your daily entries*
+|-------------|-----------|--------------------
+| November 12 | 1.5 hours | Oriented myself with the code, filled out Phase: 0, took assignment quiz.
+| TOTAL       | 1.5 hours | 
 
 
 ## Sprint Signature 4.1
