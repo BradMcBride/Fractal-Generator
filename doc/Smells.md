@@ -126,4 +126,109 @@ If you find a code smell that is not on this list, please add it to your report.
 
 ## Code Smells Report
 
-*TODO: Replace this note with your report*
+0. Magic Numbers at ```mbrot_fractal.py``` [lines 237 and more]
+    * The number 512 is used many times throughout the paint method. There are, however, no mentions of what this number is.
+   * ```python
+        canvas = Canvas(window, width=512, height=512, bg='#000000') 
+     ```
+   * This fix would be as simple as naming the variable 512 to whatever it represents. From my understanding, this is the number of pixels in the canvas length. 
+   Since the picture is going to be a square, you could rename the variable to ```canvasLength``` or ```canvasSize```, but if you wanted to (in the future) change the default canvas size, you could break it into two separate variables.
+1. Global Variable at ```mbrot_fractal.py``` [lines 224]
+    * The global variable ```palette``` is used to not have to pass in a ```palette``` variable in the paint function.
+    ```python
+   def paint(fractals, imagename, window):
+        global palette
+   ```
+   * The fix would be to simply pass in the ```palette``` variable into the method's parameters and remove the global variable. You would also have to change any calls to this method to include the palette.
+2. Poorly-named identifiers at ```phoenix_fractal.py``` [lines 128]
+    *   Too many variables declared with unclear purpose and poorly named.
+   ```python
+    def makePictureOfFractal(f, i, e, w, g, p, W, a, b, s):
+    ```
+   * First only five of the parameters are used so you could remove those. Regardless, to fix it you should rename the variables to reflect their purpose. For example, 
+   ```
+     f => fractalType
+     w => window
+     p => photoImage
+     W => color
+     s => canvasLength or size
+    ``` 
+3. Bad Comments at ```mbrot_fractal.py``` [line 247]
+    * Bad comment that serves no purpose. 
+    ```
+   # loop
+   ```
+   * There were a lot of bad comments, but this one made me chuckle. It doesn't serve any purpose because we can see that it is a loop and don't need a comment to see that. The fix would be to simply remove it.
+4. Too many arguments at ```phoenix_fractal.py``` [line 128]
+    * Too many arguments which some have no purpose at all.
+   ```python
+    def makePictureOfFractal(f, i, e, w, g, p, W, a, b, s):
+    ```
+   * Parameters ```i, e, g, a, b``` are never used. Remove them.
+5. Function/Method that is too long at ```pheonix_fractal.py``` [lines 128-214]
+   * Way too many lines of code for one function. Doing to much for one thing.
+   ```python
+      min = ((f['centerX'] - (f['axisLength'] / 2.0)),
+               (f['centerY'] - (f['axisLength'] / 2.0)))
+     max = ((f['centerX'] + (f['axisLength'] / 2.0)),
+               (f['centerY'] + (f['axisLength'] / 2.0)))
+    ...
+    tk_Interface_PhotoImage_canvas_pixel_object.create_image((s/2, s/2), image=p, state="normal")
+    tk_Interface_PhotoImage_canvas_pixel_object.pack()
+    ...
+        while r in range(s, 0, -1):
+            cs = []
+            for c in range(s):
+                X = min[0] + c * size
+                Y = 0
+                cp = getColorFromPalette(complex(X, Y))
+                Y = min[1] + r * size
+    ...
+    ```
+   * This function is trying to do too many things in one function. It may be beneficial to break it up into a basic fractal information and the printing of the fractal and status bar.
+6. Redundant Code at ```main.py``` [lines 98-99]
+    * Redundant and unnecessary code.
+    ```python
+   i=0
+   i=0
+   ```
+   * Remove one of these i's
+7. Decision tree that is too complex at ```main.py``` [lines 157-165]
+   * Too many if/elif branches, which some are not even accessible.
+   ```python
+    if PHOENX.count(sys.argv[1])>0: phoenix.phoenix_main(sys.argv[1])
+    elif sys.argv[1] in MBROTS and len(sys.argv) > 1 and 2 <= len(sys.argv[0]):
+        fractal = sys.argv[1]
+        mbrot_fractal.mbrot_main(fratcal)
+    elif len(sys.argv) != 0 and fratcal in PHOENX and len(sys.argv) != 1:
+        phoenix.phoenix_main(fractal)
+    else: print("The fractal given on the command line",
+                fractal,
+                "was not found in the command line")
+    ```
+   First, the third and forth branch can't even be accessed. Second, there is a way easier way to do this. Simply check if the arguments is greater than one, and if ```sys.argv[1]``` is in either ```PHOENX``` or ```MBROTS```, run the command.
+8. Spagetti code at ```main.py``` [lines 68-118]
+    * A lot of unclear code, unclear variables, double negatives, and more.
+   ```python
+   ...
+    exit = None          ############################## (c) 2023 #############
+    i = 0                 ##############   #####################################
+    i = 0                   ##########     ####################################
+    fractal = ''            #    ## #       ####################################
+    while not exit:                          ################################
+        print("\t" + MBROTS[i])               #  ############################
+        if PHOENX[iter] =='shrimp-cocktail':    ######################### ####
+            if MBROTS[i]  == 'starfish':       ### #  ## ##############   #
+                i = i + 1                                  #######
+                exit = PHOENX[iter] =='shrimp-cocktail'    #######
+                i -= 1 #need to back off, else index error   ###
+                exit = exit and MBROTS[i]  == 'starfish'
+    ```
+   * This is just one snippet of the spaghetti code. The fix is to get rid of all the necessary variables, fix the double negative functions/just use primitive datasets, and clear the functions' logic so it's less convoluted.
+9. Dead code at ```main.py``` [lines 113-114]
+    * Code is never used because it is followed by a exit statement.
+    ```python
+    sys.exit(1)
+    print("Those are all of the choices")`
+    ```
+    * Simply remove the line after the system exit.
