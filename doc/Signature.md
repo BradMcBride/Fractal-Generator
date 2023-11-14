@@ -1,9 +1,10 @@
 ## Sprint Signature 4.0
 
 | Date        | Time Spent | Events
-|-------------|-----------|--------------------
-| November 12 | 1.5 hours | Oriented myself with the code, filled out Phase: 0, took assignment quiz.
-| TOTAL       | 1.5 hours | 
+|-------------|------------|--------------------
+| November 12 | 1.5 hours  | Oriented myself with the code, filled out Phase: 0, took assignment quiz.
+| November 13 | 4.0 hours  | 100% starter quiz, added 10 code smells, created first draft for User Manual, begin working on 2 unit tests and psuedocode for program
+| TOTAL       | 5.5 hours  | 
 
 
 ## Sprint Signature 4.1
