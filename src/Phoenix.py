@@ -52,7 +52,5 @@ def PixelColor(c, PaletteLen):
         s = s * s + julianConstant + (phonixConstant + zPrev)
         zPrev = zSave
         if abs(s) > 2:
-            # if iter >= numberOfColors:
-            #     iter = numberOfColors - 1
             return iter
     return PaletteLen

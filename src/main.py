@@ -21,9 +21,6 @@
 
 
 import sys
-
-import phoenix_fractal as phoenix
-import mbrot_fractal
 import FractalInformation as FI
 import ImagePainter
 
@@ -50,27 +47,33 @@ import ImagePainter
 
 if len(sys.argv) < 2:
     print("Please provide the name of a fractal as an argument")
-    for item in FI.MbrotList:
-        print(item)
-    for item in FI.phoenixList:
-        print(item)
+    for fractal in FI.FractalInformation:
+        print(fractal)
     sys.exit(1)
 
 fractalChosen = sys.argv[1]
 
-if fractalChosen not in FI.MbrotList and fractalChosen not in FI.phoenixList:
+if fractalChosen not in FI.FractalInformation:
     print("ERROR:", sys.argv[1], "is not a valid fractal")  #
     print("Please choose one of the following:")
-    for fractal in FI.MbrotList:
-        print(fractal)
-    for fractal in FI.phoenixList:
+    for fractal in FI.FractalInformation:
         print(fractal)
     sys.exit(1)
-if fractalChosen in FI.phoenixList:
-    phoenix.phoenix_main(fractalChosen)
-if fractalChosen in FI.MbrotList:
-    ImagePainter.mbrot_main(FI.MbrotList[fractalChosen], fractalChosen)
-    # mbrot_fractal.mbrot_main(fractalChosen)
+
+if fractalChosen in FI.FractalInformation:
+    ImagePainter.main(FI.FractalInformation[fractalChosen], fractalChosen)
+
+
+#     if FI.FractalInformation[fractalChosen]['fractalType'] == 'mandelbrot':
+#         ImagePainter.mbrot_main(FI.FractalInformation[fractalChosen], fractalChosen)
+#     if FI.FractalInformation[fractalChosen]['fractalType'] == 'phoenix':
+#         ImagePainter.mbrot_main(FI.FractalInformation[fractalChosen], fractalChosen)
+#
+# if fractalChosen in FI.phoenixList:
+#     phoenix.phoenix_main(fractalChosen)
+# if fractalChosen in FI.MbrotList:
+#     ImagePainter.mbrot_main(FI.MbrotList[fractalChosen], fractalChosen)
+#     # mbrot_fractal.mbrot_main(fractalChosen)
 
 
 

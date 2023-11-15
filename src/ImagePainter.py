@@ -1,11 +1,10 @@
 from tkinter import Tk, Canvas, PhotoImage, mainloop
 from time import time
 import sys
-import Mandelbrot, Palette
+import Mandelbrot, Phoenix, Palette
 
 IMAGE_SIZE = 512
-def mbrot_main(fractalSettup, fractalName):
-    global img
+def main(fractalSettup, fractalName):
     print("Rendering {} fractal".format(fractalName), file=sys.stderr)
     before = time()
     window = Tk()
@@ -25,7 +24,7 @@ def paint(fractalSettup, img, window):
     miny = fractalSettup['centerY'] - (fractalSettup['axisLen'] / 2.0)
     maxy = fractalSettup['centerY'] + (fractalSettup['axisLen'] / 2.0)
 
-    canvas = Canvas(window, width=IMAGE_SIZE, height=IMAGE_SIZE, bg='#000000')
+    canvas = Canvas(window, width=IMAGE_SIZE - 2, height=IMAGE_SIZE - 2, bg='#000000')
     canvas.pack()
     canvas.create_image((IMAGE_SIZE/2, IMAGE_SIZE/2), image=img, state="normal")
 
@@ -36,11 +35,17 @@ def paint(fractalSettup, img, window):
         for col in range(IMAGE_SIZE):
             x = minx + col * pixelsize
             y = miny + row * pixelsize
-            iteration = Mandelbrot.PixelColor(complex(x, y), len(Palette.MbrotPalette))
-            color = Palette.MbrotPalette[iteration]
-            cc.append(color)
+            if fractalSettup['fractalType'] == 'mandelbrot':
+                iteration = Mandelbrot.PixelColor(complex(x, y), len(Palette.MbrotPalette))
+                color = Palette.MbrotPalette[iteration]
+                cc.append(color)
+            if fractalSettup['fractalType'] == 'phoenix':
+                iteration = Phoenix.PixelColor(complex(x, y), len(Palette.PhoenixPalette))
+                color = Palette.MbrotPalette[iteration]
+                cc.append(color)
 
-        img.put('{' + ' '.join(cc) + '}', to=(0, IMAGE_SIZE-row))
+
+        img.put('{' + ' '.join(cc) + '}', to=(0, IMAGE_SIZE - row))
         window.update()
 
         print(pixelsWrittenSoFar(row), end='\r', file=sys.stderr)  # the '\r' returns the cursor to the leftmost column

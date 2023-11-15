@@ -4,7 +4,5 @@ def PixelColor(c, PaletteLen):
     for iter in range(PaletteLen):
         z = z * z + c
         if abs(z) > 2:
-            # if iter >= numberOfColors:
-            #     iter = numberOfColors - 1
             return iter
     return PaletteLen

@@ -4,7 +4,8 @@
 |-------------|------------|--------------------
 | November 12 | 1.5 hours  | Oriented myself with the code, filled out Phase: 0, took assignment quiz.
 | November 13 | 4.0 hours  | 100% starter quiz, added 10 code smells, created first draft for User Manual, begin working on 2 unit tests and psuedocode for program
-| TOTAL       | 5.5 hours  | 
+| November 15 | 6.5 hours  | Finished Psuedocode, broke project into 6 modules, cleaned A LOT of code (more simple and easier to read)!
+| TOTAL       | 12.0 hours | 
 
 
 ## Sprint Signature 4.1
