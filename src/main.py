@@ -25,6 +25,7 @@ import sys
 import phoenix_fractal as phoenix
 import mbrot_fractal
 import FractalInformation as FI
+import ImagePainter
 
 # MBROTS = [
 #         'elephants',
@@ -68,7 +69,8 @@ if fractalChosen not in FI.MbrotList and fractalChosen not in FI.phoenixList:
 if fractalChosen in FI.phoenixList:
     phoenix.phoenix_main(fractalChosen)
 if fractalChosen in FI.MbrotList:
-    mbrot_fractal.mbrot_main(fractalChosen)
+    ImagePainter.mbrot_main(FI.MbrotList[fractalChosen], fractalChosen)
+    # mbrot_fractal.mbrot_main(fractalChosen)
 
 
 
