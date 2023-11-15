@@ -24,46 +24,50 @@ import sys
 
 import phoenix_fractal as phoenix
 import mbrot_fractal
+import FractalInformation as FI
 
-
-MBROTS = [
-        'elephants',
-        'leaf',
-        ## 'squid',  # this fractal doesn't work right now
-        'mandelbrot',
-        'mandelbrot-zoomed',
-        'seahorse',
-        'spiral0',
-        'spiral1',
-        'starfish'
-        ]
-
-
-
-from phoenix_fractal import f as phoenix_fractals
-PHOENX =[]
-for p in  phoenix_fractals . keys():
-    PHOENX=PHOENX+[p]
-
-all = PHOENX + MBROTS
+# MBROTS = [
+#         'elephants',
+#         'leaf',
+#         ## 'squid',  # this fractal doesn't work right now
+#         'mandelbrot',
+#         'mandelbrot-zoomed',
+#         'seahorse',
+#         'spiral0',
+#         'spiral1',
+#         'starfish'
+#         ]
+#
+#
+#
+# from phoenix_fractal import f as phoenix_fractals
+# PHOENX =[]
+# for p in  phoenix_fractals . keys():
+#     PHOENX=PHOENX+[p]
+#
+# all = PHOENX + MBROTS
 
 if len(sys.argv) < 2:
     print("Please provide the name of a fractal as an argument")
-    for item in all:
+    for item in FI.MbrotList:
+        print(item)
+    for item in FI.phoenixList:
         print(item)
     sys.exit(1)
 
 fractalChosen = sys.argv[1]
 
-if fractalChosen not in all:
+if fractalChosen not in FI.MbrotList and fractalChosen not in FI.phoenixList:
     print("ERROR:", sys.argv[1], "is not a valid fractal")  #
     print("Please choose one of the following:")
-    for fractal in all:
+    for fractal in FI.MbrotList:
+        print(fractal)
+    for fractal in FI.phoenixList:
         print(fractal)
     sys.exit(1)
-if fractalChosen in PHOENX:
+if fractalChosen in FI.phoenixList:
     phoenix.phoenix_main(fractalChosen)
-if fractalChosen in MBROTS:
+if fractalChosen in FI.MbrotList:
     mbrot_fractal.mbrot_main(fractalChosen)
 
 
