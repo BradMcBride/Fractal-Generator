@@ -42,15 +42,15 @@
 
 def PixelColor(c, PaletteLen):
     julianConstant = complex(0.5667, 0.0)
-    phonixConstant = complex(-0.5, 0.0)
-    zFlipped = complex(c.imag, c.real)
-    zPrev = 0 + 0j
-    s = zFlipped
+    phoenixConstant = complex(-0.5, 0.0)
+    cFlipped = complex(c.imag, c.real)
+    cPrev = 0 + 0j
+    c = cFlipped
     PaletteLen = PaletteLen - 1     # This changes the length of a list to be used in calling certain indexes.
     for iter in range(PaletteLen):
-        zSave = s
-        s = s * s + julianConstant + (phonixConstant + zPrev)
-        zPrev = zSave
-        if abs(s) > 2:
+        cSave = c
+        c = c * c + julianConstant + (phoenixConstant * cPrev)
+        cPrev = cSave
+        if abs(c) > 2:
             return iter
     return PaletteLen

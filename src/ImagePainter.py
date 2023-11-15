@@ -41,7 +41,7 @@ def paint(fractalSettup, img, window):
                 cc.append(color)
             if fractalSettup['fractalType'] == 'phoenix':
                 iteration = Phoenix.PixelColor(complex(x, y), len(Palette.PhoenixPalette))
-                color = Palette.MbrotPalette[iteration]
+                color = Palette.PhoenixPalette[iteration]
                 cc.append(color)
 
 
