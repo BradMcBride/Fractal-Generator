@@ -27,6 +27,20 @@ FractalInformation = {
             'fractalType': 'phoenix',
             },
 
+        'elephants': {
+            'centerX':  0.3015,
+            'centerY':  -0.0200,
+            'axisLen':  0.03,
+            'fractalType': 'mandelbrot',
+            },
+
+        'leaf': {
+            'centerX': -1.543577002,
+            'centerY': -0.000058690069,
+            'axisLen':  0.000051248888,
+            'fractalType': 'mandelbrot',
+            },
+
         'mandelbrot': {
             'centerX': -0.6,
             'centerY': 0.0,
@@ -41,6 +55,13 @@ FractalInformation = {
             'fractalType': 'mandelbrot',
             },
 
+        'seahorse': {
+           'centerX': -0.748,
+           'centerY': -0.102,
+           'axisLen': 0.008,
+           'fractalType': 'mandelbrot',
+    },
+
         'spiral0': {
             'centerX': -0.761335372924805,
             'centerY': 0.0835704803466797,
@@ -52,34 +73,6 @@ FractalInformation = {
             'centerX': -0.747,
             'centerY': 0.1075,
             'axisLen': 0.002,
-            'fractalType': 'mandelbrot',
-            },
-
-        'seahorse': {
-            'centerX': -0.748,
-            'centerY': -0.102,
-            'axisLen': 0.008,
-            'fractalType': 'mandelbrot',
-            },
-
-        'spiral1': {
-            'centerX': -0.747,
-            'centerY': 0.1075,
-            'axisLen': 0.002,
-            'fractalType': 'mandelbrot',
-            },
-
-        'elephants': {
-            'centerX':  0.3015,
-            'centerY':  -0.0200,
-            'axisLen':  0.03,
-            'fractalType': 'mandelbrot',
-            },
-
-        'leaf': {
-            'centerX': -1.543577002,
-            'centerY': -0.000058690069,
-            'axisLen':  0.000051248888,
             'fractalType': 'mandelbrot',
             },
 

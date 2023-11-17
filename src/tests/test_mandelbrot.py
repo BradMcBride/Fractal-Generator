@@ -21,43 +21,26 @@
 
 
 import unittest
-from mbrot_fractal import PixelColorOrIndex, palette, MAX_ITERATIONS, pixelsWrittenSoFar
+from Mandelbrot import PixelColor
 
 
 # autocmd BufWritePost <buffer> !python3 runTests.py
 
 class TestMandelbrot(unittest.TestCase):
     def test_pixelColorOrIndex(self):
-        """Mandelbrot fractal configuration and algorithm output the expected colors at key locations"""
-        # test the pixel color...
-        self.assertEqual(PixelColorOrIndex(complex(0, 0), palette), '#7D387D')
-        self.assertEqual(PixelColorOrIndex(complex(-0.751, 1.1075), palette), '#E0DC9C')
-        self.assertEqual(PixelColorOrIndex(complex(-0.2, 1.1075), palette), '#CDDC93')
-        self.assertEqual(PixelColorOrIndex(complex(-0.75, 0.1075), palette), '#79D078')
-        self.assertEqual(PixelColorOrIndex(complex(-0.748, 0.1075), palette), '#59C0BD')
-        self.assertEqual(PixelColorOrIndex(complex(-0.7562500000000001, 0.078125), palette), '#6ECB8A')
+        """Mandelbrot fractal configuration and algorithm output the expected colors index at key locations"""
 
-        # ...or Index
-        self.assertEqual(12, PixelColorOrIndex(complex(-0.7562500000000001, -0.234375), None))
-        self.assertEqual(10, PixelColorOrIndex(complex(0.3374999999999999, -0.625), None))
-        self.assertEqual(29, PixelColorOrIndex(complex(-0.6781250000000001, -0.46875), None))
-        self.assertEqual(4,  PixelColorOrIndex(complex(0.4937499999999999, -0.234375), None))
-        self.assertEqual(22, PixelColorOrIndex(complex(0.3374999999999999, 0.546875), None))
-
-    def test_pixelsWrittenSoFar(self):
-        """Progress bar produces correct output"""
-        self.assertEqual(pixelsWrittenSoFar(1, 600), '[100% =================================]')
-        self.assertEqual(pixelsWrittenSoFar(7, 7), '[ 99% =================================]')
-        self.assertEqual(pixelsWrittenSoFar(257, 321), '[ 50% ================                 ]')
-        self.assertEqual(pixelsWrittenSoFar(256, 256), '[ 50% =================                ]')
-        self.assertEqual(pixelsWrittenSoFar(100, 100), '[ 80% ===========================      ]')
-        self.assertEqual(pixelsWrittenSoFar(640, 480), '[-25%                                  ]')
-        self.assertEqual(pixelsWrittenSoFar(137, 1000), '[ 73% ========================         ]')
-        self.assertEqual(pixelsWrittenSoFar(512, 0), '[  0%                                  ]')
-
-    def test_palleteLength(self):
-        """Palette contains the expected number of colors"""
-        self.assertEqual(111, len(palette))
+        self.assertEqual(PixelColor(complex(0, 0), 111), 110)
+        self.assertEqual(PixelColor(complex(-0.751, 1.1075), 111), 2)
+        self.assertEqual(PixelColor(complex(-0.2, 1.1075), 111), 9)
+        self.assertEqual(PixelColor(complex(-0.75, 0.1075), 111), 30)
+        self.assertEqual(PixelColor(complex(-0.748, 0.1075), 111), 56)
+        self.assertEqual(PixelColor(complex(-0.7562500000000001, 0.078125), 111), 38)
+        self.assertEqual(PixelColor(complex(-0.7562500000000001, -0.234375), 111), 12)
+        self.assertEqual(PixelColor(complex(0.3374999999999999, -0.625), 111), 10)
+        self.assertEqual(PixelColor(complex(-0.6781250000000001, -0.46875), 111), 29)
+        self.assertEqual(PixelColor(complex(0.4937499999999999, -0.234375), 111), 4)
+        self.assertEqual(PixelColor(complex(0.3374999999999999, 0.546875), 111), 22)
 
 
 if __name__ == '__main__':
