@@ -9,50 +9,53 @@ Depending on where you downloaded this project and what you named it, these step
 Once inside the directory, you will then enter inside of the ```src/``` directory. This will enter into the directory of all the codes needed to run the program. Do this by running ```$cd src/``` on the terminal.
 
 ## Commands
-To run the program, enter ```$python main.py```. If the program is properly installed on your computer it should output:
-```
-$ python main.py
-Please provide the name of a fractal as an argument
-        phoenix
-        peacock
-        monkey-knife-fight
-        shrimp-cocktail
-        elephants
-        leaf
-        mandelbrot
-        mandelbrot-zoomed
-        seahorse
-        spiral0
-        spiral1
-        starfish
-```
-This will show you all the possible fractals you can choose from.
-Once you choose which fractal you want to print out, you can type in the command ```$python main.py PATTERN``` and replace ```PATTERN``` with one of the above fractal arguments.
+
+To run the program, enter ```$python main.py```.
 If everything is typed out correctly, you should be presented with a separate windows tab with a fractal that is generated top to bottom, line by line.
+On the terminal, it should also output:
+```
+$ python src/main.py
+FractalFactory: Creating default fractal
+PaletteFactory: Creating default color palette
+[100% =================================]
+Done in 1.266 seconds!
+Wrote image default.png
+Close the image window to exit the program
+```
+
+As you can see, a picture of the default fractal will be printed out on your screen.
+This is cool enough, but this program is able to do so much more! For one, you can choose which fractal you want to print!
+Once you decide which fractal you want to print out, you can type in the command ```$python main.py FRACTAL_FILE``` and replace ```FRACTAL_FILE``` with one of the fractal files downloaded on your computer.
 On the terminal, it will also output something similar to:
 ```
-$ python main.py peacock
+$ python main.py data/peacock.frac
 Rendering peacock fractal
+PaletteFactory: Creating default color palette
 [100% =================================]
 Done in 10.995 seconds!
 Saved image to file peacock.png
 Close the image window to exit the program
 ```
 Of course, this example has the chosen fractal as peacock, but you don't have to choose this one.
+The line that says "PaletteFactory: Creating default color palette" means that no custom color palette was given, so it simply uses a default color palette.
 Also notice that the loading bar is constantly updating based on the percentage of the picture printed out.
 It will then tell you the amount of time it took to create, (this time will vary based on computer and type of fractal chosen).
 Finally, it will tell you that it saved the image and how to close the window and end the program.
 Now you have a picture of the fractal you chose, congratulations! You can end the program by exiting out of the picture tab.
 
+One more thing though! You can also choose from different pre-made color palettes to make the fractals have different colors.
+When running this program with non-default values, it should follow the same pattern:
+
+```$ python src/main.py [FRACTAL_FILE [PALETTE_NAME]]```
+
+If you give the program a non-existent/non-accessible file, or the color palette name doesn't exist, it won't work.
+
+
+
 ## Troubleshooting
 If your program isn't running as expected, you can try a few things that may fix your problem.
-First, **check your spelling**! This program is not only case-sensitive (meaning the fractal must be in all lowercase), but it also must be spelled perfectly.
-If the spelling isn't correct, it will print out the information asking to provide a fractal argument (same output as running ```$python main.py```). Simply change the command and try running it again.
-
-Next, if you try inputting more than one fractal, it will only print out the first fractal argument and ignore the rest of the arguments given. 
-For example, if you input ```$python main.py peacock leaf```, it will only print out the ```peacock``` fractal and ignore the ```leaf``` command.
-
-Finally, if you still run into any issues, try checking that the python version on your computer is up-to-date and triple check that the command you typed in is correct.
+**Check your spelling**! Make sure that the location of the fractal is spelled correctly and that the file is there. Also check the spelling of the unique color palette (if applicable).
+If you still run into any issues, try checking that the python version on your computer is up-to-date and triple check that the command you typed in is correct.
 
 ## Conclusion
 Thank you for using the Fractal Visualizer! I hope that everything you enjoy exploring the intricate and mesmerizing patterns of the different fractal set.
