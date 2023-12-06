@@ -4,12 +4,12 @@ import sys
 import Mandelbrot, Phoenix, Palette
 
 IMAGE_SIZE = 512
-def main(fractalSettup, fractalName):
+def main(fractalSettup, fractalName, palette):
     print("Rendering {} fractal".format(fractalName), file=sys.stderr)
     before = time()
     window = Tk()
     img = PhotoImage(width=IMAGE_SIZE, height=IMAGE_SIZE)
-    paint(fractalSettup, img, window)
+    paint(fractalSettup, img, window, palette)
 
     after = time()
     print(f"\nDone in {after - before:.3f} seconds!", file=sys.stderr)
@@ -18,7 +18,7 @@ def main(fractalSettup, fractalName):
     print("Close the image window to exit the program", file=sys.stderr)
     mainloop()
 
-def paint(fractalSettup, img, window):
+def paint(fractalSettup, img, window, palette):
     minx = fractalSettup['centerX'] - (fractalSettup['axisLen'] / 2.0)
     maxx = fractalSettup['centerX'] + (fractalSettup['axisLen'] / 2.0)
     miny = fractalSettup['centerY'] - (fractalSettup['axisLen'] / 2.0)
@@ -36,8 +36,8 @@ def paint(fractalSettup, img, window):
             x = minx + col * pixelsize
             y = miny + row * pixelsize
             if fractalSettup['fractalType'] == 'mandelbrot':
-                iteration = Mandelbrot.PixelColor(complex(x, y), len(Palette.MbrotPalette))
-                color = Palette.MbrotPalette[iteration]
+                number = Mandelbrot.PixelColor(complex(x, y), palette._iteration)
+                color = palette.getColor(number)
                 cc.append(color)
             if fractalSettup['fractalType'] == 'phoenix':
                 iteration = Phoenix.PixelColor(complex(x, y), len(Palette.PhoenixPalette))
