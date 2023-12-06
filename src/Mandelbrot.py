@@ -1,8 +1,7 @@
-def PixelColor(complexNum, PaletteLen):
+def PixelColor(c, iter):
     z = complex(0, 0)
-    PaletteLen = PaletteLen - 1     # This changes the length of a list to be used in calling certain indexes.
-    for iter in range(PaletteLen):
-        z = z * z + complexNum
+    for num in range(iter):
+        z = z * z + c
         if abs(z) > 2:
             return iter
-    return PaletteLen
+    return num

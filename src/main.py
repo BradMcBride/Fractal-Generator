@@ -24,6 +24,7 @@ import sys
 import FractalInformation as FI
 import PaletteFactory
 import ImagePainter
+import FractalParser
 
 if len(sys.argv) < 2:
     print("Please provide the name of a fractal as an argument")
@@ -31,19 +32,23 @@ if len(sys.argv) < 2:
         print(fractal)
     sys.exit(1)
 
-colorPal = sys.argv[2]
-iteration = sys.argv[3]
 
-palette = PaletteFactory.make_colorPallete(colorPal, iteration)
+fileName = sys.argv[1]
+FractalParser.fractalReader(fileName)
 
-fractalChosen = sys.argv[1]
-
-if fractalChosen not in FI.FractalInformation:
-    print("ERROR:", sys.argv[1], "is not a valid fractal")  #
-    print("Please choose one of the following:")
-    for fractal in FI.FractalInformation:
-        print(fractal)
-    sys.exit(1)
-
-if fractalChosen in FI.FractalInformation:
-    ImagePainter.main(FI.FractalInformation[fractalChosen], fractalChosen, palette)
+# colorPal = sys.argv[2]
+# iteration = sys.argv[3]
+#
+# palette = PaletteFactory.make_colorPallete(colorPal, iteration)
+#
+# fractalChosen = sys.argv[1]
+#
+# if fractalChosen not in FI.FractalInformation:
+#     print("ERROR:", sys.argv[1], "is not a valid fractal")  #
+#     print("Please choose one of the following:")
+#     for fractal in FI.FractalInformation:
+#         print(fractal)
+#     sys.exit(1)
+#
+# if fractalChosen in FI.FractalInformation:
+#     ImagePainter.main(FI.FractalInformation[fractalChosen], fractalChosen, palette)
