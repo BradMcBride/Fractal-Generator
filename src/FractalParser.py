@@ -10,8 +10,9 @@ def fractalReader(filePath):
             if len(lineList) > 1:
                 lineList[1] = checkType(lineList[0], lineList[1])
                 fracDict[lineList[0]] = lineList[1]
-    checkForErrors(fracDict)
     file.close()
+    checkForErrors(fracDict)
+    additionalInfo(fracDict)
     return fracDict
 def checkType(key, value):
     if key == 'type':
@@ -64,6 +65,11 @@ def checkForErrors(dict):
             raise RuntimeError(f"This is a {dict['type']} fractal, but 'creal' parameter was not specified")
         if 'cimag' not in dict:
             raise RuntimeError(f"This is a {dict['type']} fractal, but 'cimag' parameter was not specified")
+
+def additionalInfo(dict):
+    dict['min'] = {'x': dict['centerx'] - (dict['axislength'] / 2.0), 'y': dict['centery'] - (dict['axislength'] / 2.0)}
+    dict['max'] = {'x': dict['centerx'] + (dict['axislength'] / 2.0), 'y': dict['centery'] + (dict['axislength'] / 2.0)}
+
 
 
 

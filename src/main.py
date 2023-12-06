@@ -25,16 +25,30 @@ import FractalInformation as FI
 import PaletteFactory
 import ImagePainter
 import FractalParser
+import FractalFactory
+
+fractal = FractalFactory.makeFractal()
+palette = PaletteFactory.make_colorPallete()
+fractalInfo = {'type': 'mandelbrot', 'pixels': 640, 'iterations': 100, 'min': {'x': -2.0, 'y': -1.5}, 'max': {'x': 1.0, 'y': 1.5}}
 
 if len(sys.argv) < 2:
-    print("Please provide the name of a fractal as an argument")
-    for fractal in FI.FractalInformation:
-        print(fractal)
-    sys.exit(1)
+    print("FractalFactory: Creating default fractal")
+
+if len(sys.argv) == 2:
+    print("PaletteFactory: Creating default fractal")
+
+if len(sys.argv) >= 2:
+    fileName = sys.argv[1]
+    fractalInfo = FractalParser.fractalReader(fileName)
+    fractal = FractalFactory.makeFractal(fractalInfo)
+    palette = PaletteFactory.make_colorPallete("gradient", fractalInfo)
+
+if len(sys.argv) == 3:
+    paletteName = sys.argv[2]
+    palette = PaletteFactory.make_colorPallete(paletteName, fractalInfo)
 
 
-fileName = sys.argv[1]
-FractalParser.fractalReader(fileName)
+ImagePainter.main(fractal, palette, fractalInfo)
 
 # colorPal = sys.argv[2]
 # iteration = sys.argv[3]

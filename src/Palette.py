@@ -1,5 +1,5 @@
 class Palette:
-    def __init__(self, iteration=100):
+    def __init__(self, iteration):
         if type(self) == Palette:
             raise NotImplementedError("You must inherit from Palette; don't try to make one!")
         self._iteration = iteration

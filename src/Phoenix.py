@@ -1,4 +1,4 @@
-def PixelColor(ComplexNum, PaletteLen):
+def count(ComplexNum, PaletteLen):
     julianConstant = complex(0.5667, 0.0)
     phoenixConstant = complex(-0.5, 0.0)
     cFlipped = complex(ComplexNum.imag, ComplexNum.real)
