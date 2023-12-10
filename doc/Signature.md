@@ -17,4 +17,5 @@
 | December 4   | 4 hours    | Made entry for Phase 0 and 1, updated manual (rough draft), made a rough draft for my plans/tests (will update as I start)
 | December 5/6 | 6 hours    | Finished most of the code 
 | December 9   | 3 hours    | Added some palettes, fractals, and fixed a couple bugs
-| TOTAL        | 13 hours   | 
+| December 10  | 2 hours    | Created 8 unit tests (some just needed simple fixes) and changed the user manual
+| TOTAL        | 15 hours   | 
