@@ -49,20 +49,3 @@ if len(sys.argv) == 3:
 
 
 ImagePainter.main(fractal, palette, fractalInfo)
-
-# colorPal = sys.argv[2]
-# iteration = sys.argv[3]
-#
-# palette = PaletteFactory.make_colorPallete(colorPal, iteration)
-#
-# fractalChosen = sys.argv[1]
-#
-# if fractalChosen not in FI.FractalInformation:
-#     print("ERROR:", sys.argv[1], "is not a valid fractal")  #
-#     print("Please choose one of the following:")
-#     for fractal in FI.FractalInformation:
-#         print(fractal)
-#     sys.exit(1)
-#
-# if fractalChosen in FI.FractalInformation:
-#     ImagePainter.main(FI.FractalInformation[fractalChosen], fractalChosen, palette)
