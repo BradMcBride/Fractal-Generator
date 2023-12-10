@@ -1,21 +1,50 @@
 import unittest
-from Palette import MbrotPalette, PhoenixPalette
+from IntergalacticPalette import IntergalacticPalette
+from GradientPalette import GradientPalette
+from RandomPalette import RandomPalette
 
 
 class TestPalette(unittest.TestCase):
-    def test_gradientLengthPhoenix(self):
-        """Color palette contains the expected number of colors"""
-        self.assertEqual(102, len(PhoenixPalette))
+    """Test whether the palette creates the correct amount of colors"""
+    def test_intergalacticLength(self):
+        palette = IntergalacticPalette(100)
+        self.assertIsInstance(palette.getColor(100), str)
+        self.assertIsInstance(palette.getColor(0), str)
+        with self.assertRaises(IndexError):
+            self.assertNotIsInstance(palette.getColor(101), str)
 
-    def test_paletteLengthMandelbrot(self):
-        """Palette contains the expected number of colors"""
-        self.assertEqual(111, len(MbrotPalette))
+        palette = IntergalacticPalette(101)
+        self.assertIsInstance(palette.getColor(101), str)
+        self.assertIsInstance(palette.getColor(0), str)
+        with self.assertRaises(IndexError):
+            self.assertNotIsInstance(palette.getColor(102), str)
 
-    def test_paletteIsAllStrings(self):
-        for color in PhoenixPalette:
-            self.assertTrue(isinstance(color, str))
-        for color in MbrotPalette:
-            self.assertTrue(isinstance(color, str))
+
+    def test_gradientLength(self):
+        palette = GradientPalette(100)
+        self.assertIsInstance(palette.getColor(100), str)
+        self.assertIsInstance(palette.getColor(0), str)
+        with self.assertRaises(IndexError):
+            self.assertNotIsInstance(palette.getColor(101), str)
+
+        palette = GradientPalette(101)
+        self.assertIsInstance(palette.getColor(101), str)
+        self.assertIsInstance(palette.getColor(0), str)
+        with self.assertRaises(IndexError):
+            self.assertNotIsInstance(palette.getColor(102), str)
+
+    def test_randomLength(self):
+        palette = RandomPalette(100)
+        self.assertIsInstance(palette.getColor(100), str)
+        self.assertIsInstance(palette.getColor(0), str)
+        with self.assertRaises(IndexError):
+            self.assertNotIsInstance(palette.getColor(101), str)
+
+        palette = RandomPalette(101)
+        self.assertIsInstance(palette.getColor(101), str)
+        self.assertIsInstance(palette.getColor(0), str)
+        with self.assertRaises(IndexError):
+            self.assertNotIsInstance(palette.getColor(102), str)
 
 if __name__ == '__main__':
     unittest.main()

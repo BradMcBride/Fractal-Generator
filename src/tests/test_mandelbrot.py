@@ -21,26 +21,26 @@
 
 
 import unittest
-from Mandelbrot import PixelColor
+from Mandelbrot import Mandelbrot
 
 
 # autocmd BufWritePost <buffer> !python3 runTests.py
 
 class TestMandelbrot(unittest.TestCase):
-    def test_pixelColorOrIndex(self):
+    def test_count(self):
         """Mandelbrot fractal configuration and algorithm output the expected colors index at key locations"""
 
-        self.assertEqual(PixelColor(complex(0, 0), 111), 110)
-        self.assertEqual(PixelColor(complex(-0.751, 1.1075), 111), 2)
-        self.assertEqual(PixelColor(complex(-0.2, 1.1075), 111), 9)
-        self.assertEqual(PixelColor(complex(-0.75, 0.1075), 111), 30)
-        self.assertEqual(PixelColor(complex(-0.748, 0.1075), 111), 56)
-        self.assertEqual(PixelColor(complex(-0.7562500000000001, 0.078125), 111), 38)
-        self.assertEqual(PixelColor(complex(-0.7562500000000001, -0.234375), 111), 12)
-        self.assertEqual(PixelColor(complex(0.3374999999999999, -0.625), 111), 10)
-        self.assertEqual(PixelColor(complex(-0.6781250000000001, -0.46875), 111), 29)
-        self.assertEqual(PixelColor(complex(0.4937499999999999, -0.234375), 111), 4)
-        self.assertEqual(PixelColor(complex(0.3374999999999999, 0.546875), 111), 22)
+        self.assertEqual(Mandelbrot.count(self, complex(0, 0), 110), 110)
+        self.assertEqual(Mandelbrot.count(self, complex(-0.751, 1.1075), 110), 3)
+        self.assertEqual(Mandelbrot.count(self, complex(-0.2, 1.1075), 110), 10)
+        self.assertEqual(Mandelbrot.count(self, complex(-0.75, 0.1075), 110), 31)
+        self.assertEqual(Mandelbrot.count(self, complex(-0.748, 0.1075), 110), 57)
+        self.assertEqual(Mandelbrot.count(self, complex(-0.7562500000000001, 0.078125), 110), 39)
+        self.assertEqual(Mandelbrot.count(self, complex(-0.7562500000000001, -0.234375), 110), 13)
+        self.assertEqual(Mandelbrot.count(self, complex(0.3374999999999999, -0.625), 110), 11)
+        self.assertEqual(Mandelbrot.count(self, complex(-0.6781250000000001, -0.46875), 110), 30)
+        self.assertEqual(Mandelbrot.count(self, complex(0.4937499999999999, -0.234375), 110), 5)
+        self.assertEqual(Mandelbrot.count(self, complex(0.3374999999999999, 0.546875), 110), 23)
 
 
 if __name__ == '__main__':

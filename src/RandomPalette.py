@@ -11,8 +11,13 @@ class RandomPalette(Palette):
         __color2 = RandomPalette.randColor(self)
         __color3 = RandomPalette.randColor(self)
 
+        # This line of code checks for if the iteration count is odd
+        # If it is odd, the palette length is going to be off without this code
+        __isOdd = 0
+        if iteration % 2 == 1:
+            __isOdd = 1
 
-        for color in colour.Color(__color1).range_to(__color2, int(self._iteration / 2) + 1): # The plus one is in case of odd number iteration which would make it have a index error
+        for color in colour.Color(__color1).range_to(__color2, int(self._iteration / 2) + __isOdd):
             self._colorList.append(color.hex_l)
         for color in colour.Color(__color2).range_to(__color3, int(self._iteration / 2)):
             self._colorList.append(color.hex_l)

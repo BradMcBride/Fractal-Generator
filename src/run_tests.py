@@ -22,12 +22,10 @@
 
 import unittest
 
-from tests import test_mandelbrot, test_phoenix, test_imagepainter, test_palette, test_fractalinformation
-
+from tests import test_imagepainter, test_mandelbrot, test_abstractclasses, test_phoenix, test_palette
 
 suite = unittest.TestSuite()
-tests = [test_mandelbrot.TestMandelbrot, test_phoenix.TestPhoenix, test_imagepainter.TestImagePainter, test_palette.TestPalette, test_fractalinformation.TestFractalInformation]
-
+tests = [test_imagepainter.TestImagePainter, test_mandelbrot.TestMandelbrot, test_phoenix.TestPhoenix, test_abstractclasses.AbstractClasses, test_palette.TestPalette]
 for test in tests:
     suite.addTest(unittest.defaultTestLoader.loadTestsFromTestCase(test))
 unittest.TextTestRunner(verbosity=2).run(suite)

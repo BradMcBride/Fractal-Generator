@@ -20,6 +20,7 @@ def paint(fracInfo, img, window, palette, fractal):
     canvas = Canvas(window, width=fracInfo['pixels'] - 2, height=fracInfo['pixels'] - 2, bg='#000000')
     canvas.pack()
     canvas.create_image((fracInfo['pixels']/2, fracInfo['pixels']/2), image=img, state="normal")
+    pixels = fracInfo['pixels']
 
     for row in range(fracInfo['pixels'], 0, -1):
         cc = []
@@ -32,11 +33,11 @@ def paint(fracInfo, img, window, palette, fractal):
         img.put('{' + ' '.join(cc) + '}', to=(0, fracInfo['pixels'] - row))
         window.update()
 
-        print(pixelsWrittenSoFar(row, fracInfo), end='\r', file=sys.stderr)  # the '\r' returns the cursor to the leftmost column
+        print(pixelsWrittenSoFar(row, pixels), end='\r', file=sys.stderr)  # the '\r' returns the cursor to the leftmost column
 
-def pixelsWrittenSoFar(rows, fracInfo):
+def pixelsWrittenSoFar(rows, pixels):
     status_bar_width = 34
-    portion = (fracInfo['pixels'] - rows) / fracInfo['pixels']
+    portion = (pixels - rows) / pixels
     status_percent = '{:>4.0%}'.format(portion)
     status_bar = '=' * int(status_bar_width * portion)
     status_bar = '{:<33}'.format(status_bar)

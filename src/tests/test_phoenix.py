@@ -21,25 +21,23 @@
 
 
 import unittest
-from Phoenix import PixelColor
+from Phoenix import Phoenix
 
-
-# autocmd BufWritePost <buffer> !python3 runTests.py
 
 class TestPhoenix(unittest.TestCase):
     def test_getPhoenixIteration(self):
         """Phoenix fractal configuration and algorithm output the expected colors at key locations"""
-        self.assertEqual(PixelColor(complex(0, 0), 102), 5)
-        self.assertEqual(PixelColor(complex(-0.751, 1.1075), 102), 0)
-        self.assertEqual(PixelColor(complex(-0.2, 1.1075), 102), 1)
-        self.assertEqual(PixelColor(complex(-0.750, 0.1075), 102), 34)
-        self.assertEqual(PixelColor(complex(-0.748, -0.1075), 102), 101)
-        self.assertEqual(PixelColor(complex(-0.75625, 0.078125), 102), 101)
-        self.assertEqual(PixelColor(complex(-0.75625, -0.234375), 102), 32)
-        self.assertEqual(PixelColor(complex(0.33749, -0.625), 102), 2)
-        self.assertEqual(PixelColor(complex(-0.678125, -0.46875), 102), 101)
-        self.assertEqual(PixelColor(complex(-0.406, -0.837), 102), 1)
-        self.assertEqual(PixelColor(complex(-0.186, -0.685), 102), 2)
+        self.assertEqual(Phoenix.count(self, complex(0, 0), 102), 6)
+        self.assertEqual(Phoenix.count(self, complex(-0.751, 1.1075), 102), 1)
+        self.assertEqual(Phoenix.count(self, complex(-0.2, 1.1075), 102), 2)
+        self.assertEqual(Phoenix.count(self, complex(-0.750, 0.1075), 102), 35)
+        self.assertEqual(Phoenix.count(self, complex(-0.748, -0.1075), 102), 102)
+        self.assertEqual(Phoenix.count(self, complex(-0.75625, 0.078125), 102), 102)
+        self.assertEqual(Phoenix.count(self, complex(-0.75625, -0.234375), 102), 33)
+        self.assertEqual(Phoenix.count(self, complex(0.33749, -0.625), 102), 3)
+        self.assertEqual(Phoenix.count(self, complex(-0.678125, -0.46875), 102), 102)
+        self.assertEqual(Phoenix.count(self, complex(-0.406, -0.837), 102), 2)
+        self.assertEqual(Phoenix.count(self, complex(-0.186, -0.685), 102), 3)
 
 
 if __name__ == '__main__':
