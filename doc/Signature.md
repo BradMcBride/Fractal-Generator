@@ -12,7 +12,9 @@
 
 ## Sprint Signature 4.1
 
-| Date        | Time Spent | Events
-|-------------|------------|--------------------
-| December 4  | 4 hours    | Made entry for Phase 0 and 1, updated manual (rough draft), made a rough draft for my plans/tests (will update as I start)
-| TOTAL       | 4 hours    | 
+| Date         | Time Spent | Events
+|--------------|------------|--------------------
+| December 4   | 4 hours    | Made entry for Phase 0 and 1, updated manual (rough draft), made a rough draft for my plans/tests (will update as I start)
+| December 5/6 | 6 hours    | Finished most of the code 
+| December 9   | 3 hours    | Added some palettes, fractals, and fixed a couple bugs
+| TOTAL        | 13 hours   | 
