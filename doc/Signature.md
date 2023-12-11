@@ -20,4 +20,5 @@
 | December 10  | 2 hours    | Created 8 unit tests (some just needed simple fixes) and changed the user manual
 | December 10  | .3 hours   | Tested program, wrote test cases
 | December 10  | .2 hours   | Verified project submission
-| TOTAL        | 15 hours   | 
+| December 10  | .5 hours   | Finished project
+| TOTAL        | 16 hours   | 
